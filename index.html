@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html  >
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>FURRY KITTY</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="http://127.0.0.1:8000/img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/mdb.min.css" />
+</head>
+
+<body>
+
+<link rel="stylesheet" href="https://bootstraptema.ru/plugins/2016/snackbarjs/snackbar.min.css" />
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+        <!-- Left elements -->
+        <ul class="navbar-nav flex-row d-none d-md-flex">
+            <div class="dropdown">
+                <button
+                    class="btn btn-danger"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <i class="fas fa-bars fa-2x"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item
+                    
+                                                active bg-danger
+                                                " href="/">Главная</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item
+                                        " href="http://127.0.0.1:8000/product">Все товары</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+
+                </ul>
+            </div>
+        </ul>
+        <div class="d-flex">
+            <!-- Brand -->
+            <a class="navbar-brand text-center" href="/">
+                <p style="font-family: 'Ruslan Display', cursive;">FURRY KITTY</p>
+            </a>
+
+        </div>
+        <!-- Left elements -->
+
+        <!-- Center elements -->
+        <!-- Search form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Center elements -->
+
+        <!-- Right elements -->
+        <ul class="navbar-nav flex-row">
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link d-sm-flex align-items-sm-center" href="#"
+                   id="navbarDropdownMenuLink"
+                   role="button"
+                   data-mdb-toggle="dropdown"
+                   aria-expanded="false">
+                                            <i class="fas fa-user"></i>
+                        <strong
+                            class="d-none d-sm-block ms-1 dropdown-toggle hidden-arrow">root</strong>
+                                    </a>
+                <ul
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuLink"
+                >
+                    
+                                                <li><a class="dropdown-item" href="/admin">Админ панель</a></li>
+                        
+                        <li>
+                            <form method="POST" action="http://127.0.0.1:8000/logout">
+                                <input type="hidden" name="_token" value="LIvEuEzvCd7a4oySkMDPPtKhAt65i0XPufYUZwOG">                                <button class="dropdown-item" type="submit">Выйти из профиля</button>
+                            </form>
+                        </li>
+
+                                    </ul>
+            </li>
+                        <li class="nav-item me-3 me-lg-1">
+                <a
+                    class="nav-link dropdown-toggle hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <span><i class="fas fa-plus-circle fa-lg"></i></span>
+                </a>
+                <ul
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuLink"
+                >
+                    <li><a class="dropdown-item" data-mdb-toggle="modal" data-mdb-target="#AddProductModal" href="#"
+                        >Добавить товар</a></li>
+
+
+                </ul>
+            </li>
+                                    <li class="nav-item dropdown me-3 me-lg-1">
+                <a
+                    class="nav-link"
+                    href="/checkout"
+                >
+                    <i class="fas fa-shopping-cart"></i>
+
+
+                </a>
+                        </ul>
+        <!-- Right elements -->
+        <!-- Add Modal -->
+        <div class="modal top fade" id="AddProductModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+            <div class="modal-dialog modal-lg  modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Добавить товар</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form enctype="multipart/form-data" action="http://127.0.0.1:8000/product/store" method="POST">
+                        <input type="hidden" name="_token" value="LIvEuEzvCd7a4oySkMDPPtKhAt65i0XPufYUZwOG">                    <div class="modal-body">
+                        <div class="form-outline mb-3">
+                            <input type="text" name="name" id="name" class="form-control"/>
+                            <label class="form-label" for="name">Название</label>
+                        </div>
+                        <div class="form-group quantity mb-3">
+                            <select class="form-control" name="category" id="category">
+                                <option>Собаки</option>
+                                <option>Кошки</option>
+                                <option>Грызуны</option>
+                                <option>Пернатые</option>
+                                <option>Рыбы</option>
+                                <option>Рептилии</option>
+                            </select>
+                        </div>
+                        <div class="form-outline mb-3">
+                            <input type="text" id="price" name="price" class="form-control"/>
+                            <label class="form-label" for="price">Цена</label>
+                        </div>
+                        <div class="form-outline mb-3">
+                            <textarea class="form-control" name="description" id="description" rows="4"></textarea>
+                            <label class="form-label" for="description">Описание</label>
+                        </div>
+
+                        <div class="form-outline mb-3">
+                            <input type="text" id="weight" name="weight" class="form-control"/>
+                            <label class="form-label" for="weight">Вес</label>
+                        </div>
+                        <input type="file" name="image" class="form-control" id="image"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-mdb-dismiss="modal">
+                            Закрыть
+                        </button>
+                        <button type="button submit" class="btn btn-danger"
+                                data-toggle="snackbar" data-content="Товар успешно добавлен" data-timeout=9000
+                        >Добавить товар </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- AddNews Modal -->
+        <div class="modal top fade" id="AddNewsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+            <div class="modal-dialog modal-lg  modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Изменение</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-outline mb-3">
+                            <input type="text" id="inputHeader" class="form-control"/>
+                            <label class="form-label" for="inputHeader">Заголовок</label>
+                        </div>
+                        <div class="form-group quantity mb-3">
+                            <select class="form-control">
+                                <option>Акции и скидки</option>
+                                <option>События</option>
+                                <option>Праздники</option>
+                            </select>
+                        </div>
+                        <div class="form-outline mb-3">
+                            <textarea class="form-control" id="inputDescription" rows="4"></textarea>
+                            <label class="form-label" for="inputDescription">Описание</label>
+                        </div>
+
+                        <input type="file" class="form-control" id="customFile"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-mdb-dismiss="modal">
+                            Закрыть
+                        </button>
+                        <button type="button" class="btn btn-danger">Сохранить изменения</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Navbar -->
+
+<script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+<script src="https://bootstraptema.ru/plugins/2016/snackbarjs/snackbar.min.js"></script>
+<style>
+    /* Стили подсказки по умолчанию */
+    .snackbar {
+        background-color: #F93154;
+        color: #FFFFFF;
+        font-size: 14px;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        height: 0;
+        -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+        -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+        -moz-transform: translateY(200%);
+        -webkit-transform: translateY(200%);
+        transform: translateY(200%);
+    }
+    .snackbar.snackbar-opened {
+        padding: 14px 15px;
+        margin-bottom: 20px;
+        height: auto;
+        -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+        -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+        -moz-transform: none;
+        -webkit-transform: none;
+        transform: none;
+    }
+    .snackbar.toast {
+        border-radius: 200px;
+    }
+</style>
+
+
+
+
+<hr class="mt-0 mb-4">
+<div class="col-xs-12 marquee m-2"><span>АКЦИЯ: СКИДКИ НА ВЕСЬ ИНВЕНТАРЬ ДЛЯ ПЕРНАТЫХ</span></div>
+<h1 class="mb-3 h1 text-center">Выбирайте товар по  <span class="badge bg-danger" style="font-family: 'Ruslan Display', cursive;">категориям</span></h1>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card">
+            <img
+                src="/img/banner_cat.jpg"
+                class="card-img-top"
+                alt="..."
+            />
+            <a href="/product?category=Кошки">
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0 fs-2"><strong style="font-family: 'Russo One', sans-serif;">Кошки</strong></p>
+                    </div>
+                </div>
+                <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img
+                src="/img/banner_dog.jpg"
+                class="card-img-top"
+                alt="..."
+            />
+            <a href="/product?category=Собаки">
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0 fs-2"><strong style="font-family: 'Russo One', sans-serif;">Собаки</strong></p>
+                    </div>
+                </div>
+                <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img
+                src="img/banner_parrot.jpg"
+                class="card-img-top"
+                alt="..."
+            />
+            <a href="/product?category=Пернатые">
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0 fs-2"><strong style="font-family: 'Russo One', sans-serif;">Пернатые</strong></p>
+                    </div>
+                </div>
+                <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img
+                src="/img/banner_hamster.jpg"
+                class="card-img-top"
+                alt="..."
+            />
+            <a href="/product?category=Грызуны">
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0 fs-2"><strong style="font-family: 'Russo One', sans-serif;">Грызуны</strong></p>
+                    </div>
+                </div>
+                <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img
+                src="img/banner_fish.jpg"
+                class="card-img-top"
+                alt="..."
+            />
+            <a href="/product?category=Рыбы">
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0 fs-2"><strong style="font-family: 'Russo One', sans-serif;">Рыбы</strong></p>
+                    </div>
+                </div>
+                <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img
+                src="/img/banner_reptile.jpg"
+                class="card-img-top"
+                alt="..."
+            />
+            <a href="/product?category=Рептилии">
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <p class="text-white mb-0 fs-2"><strong style="font-family: 'Russo One', sans-serif;">Рептилии</strong></p>
+                    </div>
+                </div>
+                <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<h1 class="mb-5 mt-5 h3 text-center">Почему именно <span class="badge bg-danger" style="font-family: 'Ruslan Display', cursive;">МЫ</span></h1>
+
+
+
+
+<!-- According -->
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+            <button
+                class="accordion-button collapsed"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#flush-collapseOne"
+                aria-expanded="false"
+                aria-controls="flush-collapseOne"
+            >
+                Самые выгодные цены.
+            </button>
+        </h2>
+        <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-mdb-parent="#accordionFlushExample"
+        >
+            <div class="accordion-body">
+                Мы регулярно следим за уровнем цен, поддерживая стоимость зоотоваров самой выгодной для Вас.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+                class="accordion-button collapsed"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#flush-collapseTwo"
+                aria-expanded="false"
+                aria-controls="flush-collapseTwo"
+            >
+                Свежая продукция.
+            </button>
+        </h2>
+        <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingTwo"
+            data-mdb-parent="#accordionFlushExample"
+        >
+            <div class="accordion-body">
+                Качество корма зависит от даты окончания срока годности! В нашем магазине только самый свежий корм от официальных дистрибьютеров!
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+            <button
+                class="accordion-button collapsed"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#flush-collapseThree"
+                aria-expanded="false"
+                aria-controls="flush-collapseThree"
+            >
+                Широкий ассортимент.
+            </button>
+        </h2>
+        <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingThree"
+            data-mdb-parent="#accordionFlushExample"
+        >
+            <div class="accordion-body">
+                Полный ассортиментный перечень нашего магазина включает в себя более 16500 наименований кормов и товаров для животных.
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <h5>FURRY KITTY</h5>
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+</footer>
+
+<style>
+    footer {
+        flex: 0 0 auto;
+
+        padding: 1rem;/*это свойство можно удалить, добавлено для наглядности*/
+    }
+</style>
+
+
+<!-- MDB -->
+<script type="text/javascript" src="http://127.0.0.1:8000/js/mdb.min.js"></script>
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
+
+<style>
+    body p {font-family: "DublonC"}
+    @-webkit-keyframes scroll {
+        0% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+        100% {
+            -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0)
+        }
+    }
+
+    @keyframes  scroll {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(-100%, 0)
+        }
+    }
+
+    .marquee {
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .marquee * {
+        display: inline-block;
+        padding-left: 100%;
+        -webkit-animation: scroll 21s infinite linear;
+        animation: scroll 21s infinite linear;
+    }
+    .marquee *:hover {
+        -webkit-animation-play-state: paused;
+        animation-play-state: paused;
+    }
+</style>
+</body>
+</html>
+
+
+
